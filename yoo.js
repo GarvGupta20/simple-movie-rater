@@ -11,7 +11,13 @@ app.post("/",(req,res) => {
      const movie=req.body.movie[1];
      const m=axios.get(" http://www.omdbapi.com/?t=" + movie +"&apikey=ad2af4bb")
          .then((response) => {
+           if(response.data.Error=="Movie not found!")
+           {
+             res.sendFile(__dirname+"/index2.html");
+           }
+           else {
            res.send("<h1>"+response.data.imdbRating+"</h1>");
+         }
          }).catch(error => {
            console.log(error);
          });
