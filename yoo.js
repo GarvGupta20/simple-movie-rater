@@ -16,7 +16,10 @@ app.post("/",(req,res) => {
              res.sendFile(__dirname+"/index2.html");
            }
            else {
-           res.send("<h1>"+response.data.imdbRating+"</h1>");
+        res.send("<p>did you mean this movie"+response.data.Year + " " + response.data.Director +" </p>"+"<h1>"+response.data.imdbRating+"</h1>");
+           //res.send("<h1>"+response.data.imdbRating+"</h1>");
+           //console.log(response);
+        console.log(typeof(response));
          }
          }).catch(error => {
            console.log(error);
